@@ -18,11 +18,11 @@ Copy the script in your .bashrc file and then execute the command
 	source ~/.bashrc
 
 #Usage
-*Stop multiple containers
+1. Stop multiple containers
 	vzstop 101 102 103
-*Start multiple containers
+2. Start multiple containers
 	vzstart 101 102 103
-*Destroy multiple containers
+3. Destroy multiple containers
 	vzdestroy 101 102
-*List all the containers even stopped one
+4. List all the containers even stopped one
 	vzlist
