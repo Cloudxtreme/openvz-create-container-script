@@ -31,11 +31,11 @@ Copy the script in your .bashrc file and then execute the command
 4. List all the containers even stopped one<br/>
 	vzlist
     
-5. Modify the DNS server of the VPS
+5. Modify the DNS server of the VPS<br/>
     vzadddns 101 8.8.8.8
     
-6. Create a container with specific amount of RAM
+6. Create a container with specific amount of RAM<br/>
     vzcreate 101 'centos-6' '192.168.1.101' 1024 2048 centos-6-x86
     
-7. Create a container with default RAM settings
+7. Create a container with default RAM settings<br/>
     vzcreate 101 'centos-6' '192.168.1.101' centos-6-x86
