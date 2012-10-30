@@ -7,7 +7,7 @@ for my servers. The script could be modified in such a way that we could specifi
 this amount of RAM through the command line. I will probably end up doing it later.</del>
 I did add some support for the RAM, check the usage #6.
 
-This script now help me to define some alias shortcuts to manage my OpenVZ server.
+This script helps me to define some alias shortcuts to manage my OpenVZ server.
 
 #Installation
 Include the bash script in your .bashrc file
