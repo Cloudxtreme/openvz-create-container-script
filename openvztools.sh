@@ -63,21 +63,25 @@ function create_vz {
         $PATH_DIR/vzctl set $VZUID --ipadd $VZIP --save
         # Set the number of Sockets and the NameServers
         $PATH_DIR/vzctl set $VZUID --numothersock 360 --save
-        $PATH_DIR/vzctl set $VZUID --nameserver 8.8.8.8 --save
-        
+        # Set default DNS server
+        if [[ $DEFAULT_NAMESERVER != "" ]]; then
+            $PATH_DIR/vzctl set $VZUID --nameserver $DEFAULT_NAMESERVER --save
+        else
+            $PATH_DIR/vzctl set $VZUID --nameserver 8.8.8.8 --save
+        fi        
         # Set the privvmpages is your memory limit..
+        # Guaranteed memory
         if [[ $VZMEMGARANTEED != "" ]]; then
             $PATH_DIR/vzctl set $VZUID --vmguarpages $((256 * $VZMEMGARANTEED)) --save  # xxxMB   Dedicated (Guaranteed)
         else
             $PATH_DIR/vzctl set $VZUID --vmguarpages $((256 * 512)) --save  # 512MB   Dedicated (Guaranteed)
         fi
-        
+        # Granted memory
         if [[ $VZMEMGRANTED != "" ]]; then
             $PATH_DIR/vzctl set $VZUID --privvmpages $((256 * $VZMEMGRANTED)) --save # xxxxMB  Burst     (Granted)
         else
             $PATH_DIR/vzctl set $VZUID --privvmpages $((256 * 1024)) --save # 1024MB  Burst     (Granted)
-        fi
-        
+        fi        
         # Set NFS option on
         $PATH_DIR/vzctl set $VZUID --features "nfs:on" --save
         # Set Harddisk space
