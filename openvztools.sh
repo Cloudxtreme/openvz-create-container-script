@@ -156,6 +156,17 @@ function add_dns {
 }
 
 
+function change_hostname {
+    VZUID="$1"
+    VZHOSTNAME="$2"
+    if [[ $# != 2 ]]; then
+        $PATH_DIR/vzctl set $VZUID --hostname $VZHOSTNAME --save
+    else
+        echo "Usage:    vzhostname <UID> <hostname>"
+    fi
+}
+
+
 ########################################## 
 # Alias to call the function defined above
 #
@@ -169,3 +180,4 @@ alias vzcreate="create_vz "
 alias vzonboot="onboot_vz_container "
 alias vzoffboot="offboot_vz_container "
 alias vzadddns="add_dns "
+alias vzhostname="change_hostname "
