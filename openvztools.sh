@@ -159,7 +159,7 @@ function add_dns {
 function change_hostname {
     VZUID="$1"
     VZHOSTNAME="$2"
-    if [[ $# != 2 ]]; then
+    if [[ $# -eq 2 ]]; then
         $PATH_DIR/vzctl set $VZUID --hostname $VZHOSTNAME --save
     else
         echo "Usage:    vzhostname <UID> <hostname>"

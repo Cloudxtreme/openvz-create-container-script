@@ -39,3 +39,6 @@ Copy the script in your .bashrc file and then execute the command
     
 7. Create a container with default RAM settings<br/>
     vzcreate 101 'centos-6' '192.168.1.101' centos-6-x86
+    
+7. Modify the hostname of a container<br/>
+    vzhostname 253 'ns-2.home.dr'
