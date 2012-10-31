@@ -44,7 +44,7 @@ Copy the script in your .bashrc file and then execute the command
     vzhostname 101 'test.example.com'
 
 9. Specify a default nameserver other than 8.8.8.8<br/>
-    # Set the environment variable DEFAULT_NAMESERVER to the ip of
+    <code># Set the environment variable DEFAULT_NAMESERVER to the ip of
     # the DNS server of your choice
     echo 'export DEFAULT_NAMESERVER="192.168.1.254"' >> ~/.bashrc 
-    source ~/.bashrc 
+    source ~/.bashrc</code>
