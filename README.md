@@ -94,3 +94,14 @@ Copy the script in your .bashrc file and then execute the command
         source ~/.bashrc
         </code>
     </pre>
+    
+10. Create a dump of your OpenVZ container
+    <pre>
+        <code>        
+        # Single container
+        vzcreatedump 101
+        
+        # Multiple container
+        vzcreatedump 101 102 103
+        </code>
+    </pre>

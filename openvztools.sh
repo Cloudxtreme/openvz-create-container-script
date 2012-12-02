@@ -170,6 +170,13 @@ function change_hostname {
     fi
 }
 
+function vzcreatedump {
+    for id in $@; do
+        $PATH_DIR/vzctl stop $id;
+        $PATH_DIR/vzdump --bwlimit 1024 $id;
+        $PATH_DIR/vzctl start $id;
+    done
+}
 
 ########################################## 
 # Alias to call the function defined above
@@ -185,3 +192,5 @@ alias vzonboot="onboot_vz_container "
 alias vzoffboot="offboot_vz_container "
 alias vzadddns="add_dns "
 alias vzhostname="change_hostname "
+alias vzcreatedump="vzcreatedump "
+
