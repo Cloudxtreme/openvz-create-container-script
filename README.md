@@ -96,6 +96,7 @@ Copy the script in your .bashrc file and then execute the command
     </pre>
     
 10. Create a dump of your OpenVZ container
+    You MUST have '''vzdump''' installed first.
     <pre>
         <code>        
         # Single container
