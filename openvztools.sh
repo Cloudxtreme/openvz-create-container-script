@@ -76,11 +76,17 @@ function create_vz {
         else
             $PATH_DIR/vzctl set $VZUID --vmguarpages $((256 * 512)) --save  # 512MB   Dedicated (Guaranteed)
         fi
+	# Memory for the Out of Memory barrier
+	if [[ $VZMEMGARANTEED != "" ]]; then
+            $PATH_DIR/vzctl set $VZUID --oomguarpages $((256 * $VZMEMGARANTEED)) --save  # xxxMB   Dedicated (Guaranteed)
+        else
+            $PATH_DIR/vzctl set $VZUID --oomguarpages $((256 * 512)) --save  # 512MB   Dedicated (Guaranteed)
+        fi
         # Granted memory
         if [[ $VZMEMGRANTED != "" ]]; then
-            $PATH_DIR/vzctl set $VZUID --privvmpages $((256 * $VZMEMGRANTED)) --save # xxxxMB  Burst     (Granted)
+            $PATH_DIR/vzctl set $VZUID --privvmpages $((256 * $VZMEMGRANTED)) --save # xxxxMB  Burstable     (Granted)
         else
-            $PATH_DIR/vzctl set $VZUID --privvmpages $((256 * 1024)) --save # 1024MB  Burst     (Granted)
+            $PATH_DIR/vzctl set $VZUID --privvmpages $((256 * 1024)) --save # 1024MB  Burstable     (Granted)
         fi        
         # Set NFS option on
         $PATH_DIR/vzctl set $VZUID --features "nfs:on" --save
