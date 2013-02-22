@@ -188,6 +188,8 @@ function vzcreatedump {
 # Alias to call the function defined above
 #
 alias vzlist="vzlist -a"
+alias vzlistbyip="vzlist -a -s ip"
+alias vzlistbyhost="vzlist -a -s hostname"
 alias vzenter="vzctl enter "
 alias vzstop="stop_vz "
 alias vzstart="start_vz "
